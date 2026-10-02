@@ -30,6 +30,8 @@ not configured.
 | Secret/runtime/backup directory exclusion | Passed |
 | Restic data-pack read | 5%; no errors |
 | Managed schedule | Four repository-A/media jobs; no B or prune job |
+| Scheduled job wrapper | Backup completed with recorded `exit_code=0` status |
+| Prune safety gate | Refused execution without `ALLOW_PRUNE=yes` (exit 41) |
 | Application least-privilege acceptance | Passed |
 | Container state after acceptance | Healthy, running, zero restarts |
 
@@ -56,6 +58,9 @@ successful check and restore review.
 - Public ingress remains deferred until the owner purchases a domain. The active site
   remains LAN-only.
 - A second cloud provider is not configured by owner decision.
+- The owner skipped creation of an additional offline credential pack. Until one is
+  created, loss of the target-only Restic password and rclone configuration would make
+  the cloud repository unrecoverable even though its data remains intact.
 
 The public source repository is
 <https://github.com/xiaojiyiobo/LittleLife>. It contains no archive data, OAuth token,
