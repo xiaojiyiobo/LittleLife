@@ -16,6 +16,7 @@
 ├── config/               non-secret configuration
 ├── secrets/              target-only, never Git
 ├── runtime/              Grav `/config`, cache and logs
+│   └── openlist/         target-only provider-B bridge state and encrypted credentials
 ├── backup/               backup logs, locks and restore staging
 └── scripts/              deployed operational scripts
 ```
@@ -25,6 +26,7 @@
 | Host | Container | Mode | Class |
 |---|---|---|---|
 | `runtime/grav-config` | `/config` | read/write | Runtime |
+| `runtime/openlist` | `/opt/openlist/data` | read/write | Target-only provider-B runtime |
 | `derived/grav-pages` | `/config/www/user/pages` | read-only | Derived |
 | `app/littlelife-theme` | `/config/www/user/themes/littlelife` | read-only | Code |
 | `config/grav/system.yaml` | `/config/www/user/config/system.yaml` | read-only | Config |

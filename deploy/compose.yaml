@@ -41,3 +41,33 @@ services:
       org.littlelife.data-class: presentation-only
       org.littlelife.start-policy: host-preflight-required
 
+  openlist:
+    profiles: ["provider-b"]
+    image: ${OPENLIST_IMAGE:?Set OPENLIST_IMAGE in .env}
+    container_name: littlelife-openlist
+    user: "1001:1001"
+    environment:
+      TZ: ${TZ:-Asia/Hong_Kong}
+      UMASK: "077"
+    volumes:
+      - ${LITTLELIFE_ROOT:?Set LITTLELIFE_ROOT}/runtime/openlist:/opt/openlist/data:rw
+    ports:
+      - ${LITTLELIFE_BIND_ADDRESS:-127.0.0.1}:${OPENLIST_HTTP_PORT:-5244}:5244
+    restart: unless-stopped
+    mem_limit: ${OPENLIST_MEMORY_LIMIT:-256m}
+    cpus: ${OPENLIST_CPU_LIMIT:-0.5}
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q --spider http://127.0.0.1:5244/ || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: "3"
+    labels:
+      org.littlelife.data-class: credential-bridge
+      org.littlelife.start-policy: provider-b-explicit
+

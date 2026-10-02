@@ -53,6 +53,21 @@ scripts/forget-prune.sh A|B` only after reviewing the latest check and restore r
 
 No backup is considered healthy until data has been restored and opened.
 
+## Optional Baidu Netdisk repository B
+
+The supported provider-B design uses the pinned ARM64 OpenList container as a local
+WebDAV bridge to Baidu Netdisk. Its management port binds to the same LAN-only address
+as LittleLife and is never published through the public VPS tunnel. OpenList runtime,
+OAuth tokens and storage credentials live only under `runtime/openlist`; they are not
+committed to Git or included in Restic snapshots.
+
+Start or stop the bridge explicitly with `deploy/start-provider-b.sh` and
+`deploy/stop-provider-b.sh`. After the owner authorizes a private Baidu developer
+application, rclone connects to the bridge's WebDAV endpoint and Restic uses the
+existing optional repository-B variables. Repository B must use its own Restic
+password and must pass initialization, backup, check and clean-directory restore
+before it is added to the normal schedule.
+
 ## Changing the Google account
 
 The archive is not tied to one Google identity. To change accounts without creating a
