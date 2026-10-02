@@ -1,0 +1,9 @@
+ui:
+  defaults:
+    adminLanguage: zh-Hans
+  branding:
+    mode: text
+    text: LittleLife
+    title: LittleLife 管理后台
+    subtitle: 登录后管理成长记录
+    showPoweredBy: false

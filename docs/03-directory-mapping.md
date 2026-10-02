@@ -29,6 +29,7 @@
 | `app/littlelife-theme` | `/config/www/user/themes/littlelife` | read-only | Code |
 | `config/grav/system.yaml` | `/config/www/user/config/system.yaml` | read-only | Config |
 | `config/grav/site.yaml` | `/config/www/user/config/site.yaml` | read-only | Config |
+| `config/grav/admin-next.yaml` | `/config/www/user/config/admin-next.yaml` | read-only | Config |
 | `config/grav/themes/littlelife.yaml` | `/config/www/user/config/themes/littlelife.yaml` | read-only | Config |
 | `config/grav/plugins/admin2.yaml` | `/config/www/user/config/plugins/admin2.yaml` | read-only | Config |
 | `config/grav/plugins/api.yaml` | `/config/www/user/config/plugins/api.yaml` | read-only | Config |

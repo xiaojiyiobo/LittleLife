@@ -18,7 +18,7 @@ docker exec -w /app/www/public littlelife-grav php bin/plugin login new-user \
   --user="$LITTLELIFE_ADMIN_USER" \
   --password="$password" \
   --email=littlelife@localhost.invalid \
-  --language=zh \
+  --language=zh-Hans \
   --permissions=s \
   --fullname='LittleLife Administrator' \
   --title='Archive Administrator' \
@@ -36,6 +36,10 @@ $account["access"] = [
         "littlelife" => ["read" => true, "write" => true],
     ],
     "site" => ["login" => true],
+];
+$account["language"] = "zh-Hans";
+$account["admin_next"] = [
+    "preferences" => ["adminLanguage" => "zh-Hans"],
 ];
 if (!yaml_emit_file($path, $account, YAML_UTF8_ENCODING, YAML_LN_BREAK)) {
     fwrite(STDERR, "Unable to write restricted account\n"); exit(1);

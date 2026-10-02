@@ -16,6 +16,7 @@ services:
       - ${LITTLELIFE_ROOT}/app/littlelife-admin:/config/www/user/plugins/littlelife-admin:ro
       - ${LITTLELIFE_ROOT}/config/grav/system.yaml:/config/www/user/config/system.yaml:ro
       - ${LITTLELIFE_ROOT}/config/grav/site.yaml:/config/www/user/config/site.yaml:ro
+      - ${LITTLELIFE_ROOT}/config/grav/admin-next.yaml:/config/www/user/config/admin-next.yaml:ro
       - ${LITTLELIFE_ROOT}/config/grav/themes/littlelife.yaml:/config/www/user/config/themes/littlelife.yaml:ro
       - ${LITTLELIFE_ROOT}/config/grav/plugins/admin2.yaml:/config/www/user/config/plugins/admin2.yaml:ro
       - ${LITTLELIFE_ROOT}/config/grav/plugins/api.yaml:/config/www/user/config/plugins/api.yaml:ro
