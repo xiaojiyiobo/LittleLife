@@ -47,9 +47,10 @@ CMS 不再可用，档案仍然可以直接读取和迁移。
 
 ## 参考部署状态
 
-参考部署已通过原生 ARM64 应用、最小权限、Google Drive 备份、仓库检查、5% 数据包
-读取和全新目录恢复验收。公网入口是可选项，纯局域网部署不需要公网入口。详细证据和
-已接受的例外见 [Google Drive 备份验收记录](docs/16-google-drive-backup-acceptance.md)。
+参考部署已通过原生 ARM64 应用、最小权限、相互独立的 Google Drive 与百度网盘备份、
+仓库检查及全新目录恢复验收。公网入口是可选项，纯局域网部署不依赖公网入口。记录证据
+与已接受的例外见 [Google Drive 验收记录](docs/16-google-drive-backup-acceptance.md) 和
+[百度仓库 B 验收记录](docs/18-baidu-backup-acceptance.md)。
 
 ## 仓库目录
 

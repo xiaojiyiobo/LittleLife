@@ -52,9 +52,10 @@ For the design and data contract, continue with:
 ## Reference deployment status
 
 The reference deployment has passed native ARM64 application, least-privilege,
-Google Drive backup, repository check, 5% data-pack read and clean-directory restore
-acceptance. Public ingress is optional and is not required for a LAN-only installation.
-See [Google Drive backup acceptance](docs/16-google-drive-backup-acceptance.md) for the
+independent Google Drive and Baidu Netdisk backups, repository checks and
+clean-directory restore acceptance. Public ingress is optional and is not required for
+a LAN-only installation. See the [Google Drive acceptance record](docs/16-google-drive-backup-acceptance.md)
+and [Baidu repository-B acceptance record](docs/18-baidu-backup-acceptance.md) for the
 recorded evidence and accepted exceptions.
 
 ## Repository layout
