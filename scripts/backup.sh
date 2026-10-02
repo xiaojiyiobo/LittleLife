@@ -64,8 +64,10 @@ run_backup() {
     "$LITTLELIFE_ROOT/data-schema" \
     "$LITTLELIFE_ROOT/docs" \
     "$LITTLELIFE_ROOT/scripts" \
-    "$LITTLELIFE_ROOT/deploy"
-  for root_file in VERSION README.md DEPLOYMENT.txt SHA256SUMS requirements-dev.txt .env.example; do
+    "$LITTLELIFE_ROOT/deploy" \
+    "$LITTLELIFE_ROOT/tests" \
+    "$LITTLELIFE_ROOT/examples"
+  for root_file in VERSION README.md DEPLOYMENT.txt SHA256SUMS requirements-dev.txt .env.example .gitattributes .gitignore; do
     [ ! -f "$LITTLELIFE_ROOT/$root_file" ] || set -- "$@" "$LITTLELIFE_ROOT/$root_file"
   done
 

@@ -12,8 +12,10 @@ packs. The owner accepted the reduced redundancy of single-repository mode on
 
 Each repository snapshot contains canonical `data/`, custom `app/`, non-secret
 `config/`, schemas, recovery documentation, `scripts/`, container/deployment files
-under `deploy/`, and available root version/checksum/dependency manifests. Runtime
-state, derived files, local backup workspaces and all `secrets/` content are excluded.
+under `deploy/`, tests, fictional recovery examples, Git policy files, and available
+root version/checksum/dependency manifests. This makes the release `SHA256SUMS`
+directly verifiable after a full restore. Runtime state, derived files, local backup
+workspaces and all `secrets/` content are excluded.
 
 ## Schedule
 

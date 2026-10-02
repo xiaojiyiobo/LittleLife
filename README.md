@@ -20,11 +20,12 @@ documentation. Real family data and credentials must never be committed.
 - Timeline browsing supports combined year, month, tag and milestone filters without
   changing canonical files.
 - Restic/rclone ARM64 tools and optional two-repository restore scripts: installed and
-  proven against two local acceptance repositories. The owner selected one Google Drive
-  repository for the initial deployment; production activation awaits its first cloud
-  backup and restored-copy acceptance.
-- Public ingress is deferred until a domain is purchased. Real-data import remains
-  gated on a successful restore from the selected Google Drive repository.
+  proven locally and against the selected Google Drive repository. The first cloud
+  backups, repository check, 5% data-pack read and clean-directory restore all passed;
+  repository B remains optional and unconfigured by owner decision.
+- Public ingress is deferred until a domain is purchased. The backup/restore gate for
+  later real-data import has passed; importing personal material remains an explicit
+  owner action.
 
 Start with [`docs/01-implementation-design.md`](docs/01-implementation-design.md) and
 [`docs/05-test-plan.md`](docs/05-test-plan.md).
@@ -48,3 +49,5 @@ state are separate and disposable.
 
 The optional Google Drive integration and its limited data use are described in
 [`docs/15-privacy-policy.md`](docs/15-privacy-policy.md).
+The production backup and restore evidence is recorded in
+[`docs/16-google-drive-backup-acceptance.md`](docs/16-google-drive-backup-acceptance.md).
