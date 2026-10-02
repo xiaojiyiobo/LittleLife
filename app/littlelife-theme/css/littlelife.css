@@ -23,6 +23,8 @@ audio { width: 100%; }
 .brand { color: var(--ink); font-family: Georgia, serif; font-size: 1.35rem; font-weight: 700; text-decoration: none; }
 nav { display: flex; gap: 1.25rem; }
 nav a { color: var(--muted); text-decoration: none; }
+nav .quick-add-link { color: white; padding-inline: .8rem; border-radius: 999px; background: var(--rose); }
+nav .quick-add-link:hover, nav .quick-add-link:focus-visible { background: var(--ink); }
 nav .admin-link { padding-inline: .7rem; border: 1px solid var(--line); border-radius: 999px; }
 nav .admin-link:hover, nav .admin-link:focus-visible { color: var(--ink); border-color: var(--rose); }
 .shell { min-height: 72vh; padding: clamp(2rem, 7vw, 6rem) 0; }
@@ -30,6 +32,8 @@ nav .admin-link:hover, nav .admin-link:focus-visible { color: var(--ink); border
 .hero h1, .page-heading h1, .story h1 { font-family: Georgia, "Noto Serif SC", serif; font-weight: 600; font-size: clamp(2.5rem, 7vw, 5.5rem); line-height: 1.03; margin: .25rem 0 1.5rem; }
 .eyebrow { color: var(--rose); font-size: .74rem; font-weight: 800; letter-spacing: .16em; }
 .button { display: inline-block; margin-top: 1rem; padding: .8rem 1.1rem; border-radius: 999px; background: var(--ink); color: white; text-decoration: none; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+.button-secondary { background: var(--rose); }
 .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 5rem; }
 .principles article { display: grid; gap: .45rem; padding: 1.25rem; background: var(--surface); border: 1px solid var(--line); border-radius: 1rem; box-shadow: var(--shadow); }
 .principles span, .site-footer, time { color: var(--muted); }
@@ -60,6 +64,9 @@ nav .admin-link:hover, nav .admin-link:focus-visible { color: var(--ink); border
 .tags { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; padding: 0; }
 .site-footer { border-top: 1px solid var(--line); padding: 2rem 0 3rem; font-size: .9rem; }
 @media (max-width: 700px) {
+  .site-header { align-items: flex-start; gap: 1rem; }
+  nav { justify-content: flex-end; flex-wrap: wrap; gap: .55rem .8rem; }
+  nav .quick-add-link { order: -1; }
   .principles { grid-template-columns: 1fr; }
   .timeline-filters { grid-template-columns: 1fr; align-items: stretch; }
   .year-group { grid-template-columns: 1fr; gap: .5rem; }

@@ -5,7 +5,10 @@
     <p class="eyebrow">PRIVATE FAMILY ARCHIVE</p>
     <h1>{{ page.title|e }}</h1>
     <div class="prose">{{ page.content|raw }}</div>
-    <a class="button" href="{{ base_url }}/timeline">打开成长时间线</a>
+    <div class="hero-actions">
+      <a class="button" href="{{ base_url }}/timeline">打开成长时间线</a>
+      <a class="button button-secondary" href="{{ base_url }}/admin2/plugin/littlelife-admin" rel="nofollow">＋ 添加照片或记录</a>
+    </div>
   </section>
   <section class="principles" aria-label="档案原则">
     <article><strong>原始文件</strong><span>照片、视频和声音保持普通文件格式。</span></article>
