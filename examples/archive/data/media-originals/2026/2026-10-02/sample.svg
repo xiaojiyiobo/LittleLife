@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">虚构测试插图</title>
+  <desc id="desc">暖色背景中的一颗小星星，仅用于 LittleLife 原型测试。</desc>
+  <rect width="800" height="500" rx="32" fill="#fff4e8"/>
+  <circle cx="150" cy="120" r="70" fill="#f6dfe1"/>
+  <circle cx="670" cy="390" r="95" fill="#dfeafa"/>
+  <path d="M400 105l47 96 106 15-77 75 19 106-95-50-95 50 19-106-77-75 106-15z" fill="#e9a95f"/>
+  <path d="M365 255c22 24 48 24 70 0" fill="none" stroke="#6e4b3a" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="355" cy="225" r="9" fill="#6e4b3a"/>
+  <circle cx="445" cy="225" r="9" fill="#6e4b3a"/>
+  <text x="400" y="460" text-anchor="middle" fill="#7b6660" font-family="sans-serif" font-size="24">FICTIONAL TEST ASSET</text>
+</svg>

@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+  <section class="hero">
+    <p class="eyebrow">PRIVATE FAMILY ARCHIVE</p>
+    <h1>{{ page.title|e }}</h1>
+    <div class="prose">{{ page.content|raw }}</div>
+    <a class="button" href="{{ base_url }}/timeline">打开成长时间线</a>
+  </section>
+  <section class="principles" aria-label="档案原则">
+    <article><strong>原始文件</strong><span>照片、视频和声音保持普通文件格式。</span></article>
+    <article><strong>开放文字</strong><span>故事使用 Markdown 与 YAML，离开网站也能读。</span></article>
+    <article><strong>可验证恢复</strong><span>哈希、备份与恢复演练共同保护长期记忆。</span></article>
+  </section>
+{% endblock %}
+

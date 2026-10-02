@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+  <article class="prose">
+    <h1>{{ page.title|e }}</h1>
+    {{ page.content|raw }}
+  </article>
+{% endblock %}
+

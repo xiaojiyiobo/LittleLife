@@ -1,0 +1,27 @@
+name: LittleLife Admin
+slug: littlelife-admin
+type: plugin
+version: 1.0.0
+description: Authenticated canonical archive editor for LittleLife.
+icon: child-reaching
+author:
+  name: LittleLife
+license: MIT
+compatibility:
+  grav: ['2.0']
+dependencies:
+  - { name: api, version: '>=1.0.44' }
+  - { name: admin2, version: '>=2.1.27' }
+
+form:
+  validation: strict
+  fields:
+    enabled:
+      type: toggle
+      label: Plugin status
+      default: 1
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool

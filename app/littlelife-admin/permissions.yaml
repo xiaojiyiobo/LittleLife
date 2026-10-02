@@ -1,0 +1,9 @@
+actions:
+  api.littlelife:
+    type: access
+    label: LittleLife archive
+    actions:
+      read:
+        label: Read archive records, integrity and exports
+      write:
+        label: Create and update records, upload media and rebuild pages

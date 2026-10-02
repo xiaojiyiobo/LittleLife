@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://littlelife.invalid/schema/entry.schema.json",
+  "title": "LittleLife archive entry",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["id", "date", "title", "type", "media", "visibility", "created_at", "updated_at"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[0-9]{8}-[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "date": { "type": "string", "format": "date-time" },
+    "title": { "type": "string", "minLength": 1, "maxLength": 200 },
+    "type": {
+      "type": "string",
+      "enum": ["story", "milestone", "note"]
+    },
+    "milestones": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+      "uniqueItems": true
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "media": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "visibility": { "const": "private" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": "string", "format": "date-time" }
+  }
+}
+

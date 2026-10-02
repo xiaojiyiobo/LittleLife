@@ -1,0 +1,25 @@
+name: LittleLife
+slug: littlelife
+type: theme
+version: 0.1.0
+description: Minimal private timeline theme for the LittleLife archive.
+icon: heart
+author:
+  name: LittleLife
+homepage: https://example.invalid/littlelife
+keywords: [grav, private, archive, timeline]
+license: UNLICENSED
+compatibility:
+  grav: ">=2.2.0"
+form:
+  validation: loose
+  fields:
+    enabled:
+      type: toggle
+      label: Enabled
+      highlight: 1
+      default: 1
+      options:
+        1: Yes
+        0: No
+

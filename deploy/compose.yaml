@@ -1,0 +1,42 @@
+name: littlelife
+
+services:
+  grav:
+    image: ${GRAV_IMAGE:?Set GRAV_IMAGE in .env}
+    container_name: littlelife-grav
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Asia/Hong_Kong}
+    volumes:
+      - ${LITTLELIFE_ROOT:?Set LITTLELIFE_ROOT}/runtime/grav-config:/config
+      - ${LITTLELIFE_ROOT}/data:/littlelife-data:rw
+      - ${LITTLELIFE_ROOT}/derived/grav-pages:/config/www/user/pages:rw
+      - ${LITTLELIFE_ROOT}/app/littlelife-theme:/config/www/user/themes/littlelife:ro
+      - ${LITTLELIFE_ROOT}/app/littlelife-admin:/config/www/user/plugins/littlelife-admin:ro
+      - ${LITTLELIFE_ROOT}/config/grav/system.yaml:/config/www/user/config/system.yaml:ro
+      - ${LITTLELIFE_ROOT}/config/grav/site.yaml:/config/www/user/config/site.yaml:ro
+      - ${LITTLELIFE_ROOT}/config/grav/themes/littlelife.yaml:/config/www/user/config/themes/littlelife.yaml:ro
+      - ${LITTLELIFE_ROOT}/config/grav/plugins/admin2.yaml:/config/www/user/config/plugins/admin2.yaml:ro
+      - ${LITTLELIFE_ROOT}/config/grav/plugins/api.yaml:/config/www/user/config/plugins/api.yaml:ro
+      - ${LITTLELIFE_ROOT}/config/grav/plugins/littlelife-admin.yaml:/config/www/user/config/plugins/littlelife-admin.yaml:ro
+    ports:
+      - ${LITTLELIFE_BIND_ADDRESS:-127.0.0.1}:${LITTLELIFE_HTTP_PORT:-8080}:80
+    restart: unless-stopped
+    mem_limit: ${GRAV_MEMORY_LIMIT:-512m}
+    cpus: ${GRAV_CPU_LIMIT:-1.0}
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://127.0.0.1/ >/dev/null || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 45s
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: "3"
+    labels:
+      org.littlelife.data-class: presentation-only
+      org.littlelife.start-policy: host-preflight-required
+

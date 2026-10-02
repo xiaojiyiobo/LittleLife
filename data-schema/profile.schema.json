@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://littlelife.invalid/schema/profile.schema.json",
+  "title": "LittleLife private profile",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["display_name", "timezone", "archive_started"],
+  "properties": {
+    "display_name": { "type": "string", "minLength": 1, "maxLength": 100 },
+    "timezone": { "type": "string", "minLength": 1 },
+    "archive_started": { "type": "string", "format": "date" },
+    "notice": { "type": "string" }
+  }
+}
+

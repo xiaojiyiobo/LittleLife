@@ -1,0 +1,16 @@
+enabled: true
+route: /api
+version_prefix: v1
+auth:
+  api_keys_enabled: false
+  jwt_enabled: true
+  jwt_expiry: 3600
+  jwt_refresh_expiry: 604800
+  session_enabled: true
+rate_limit:
+  enabled: true
+  limit: 120
+  window: 60
+cors:
+  enabled: false
+

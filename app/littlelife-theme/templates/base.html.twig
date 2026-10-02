@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>{% if page.title %}{{ page.title|e }} · {% endif %}{{ site.title|e }}</title>
+  {% do assets.addCss('theme://css/littlelife.css', 100) %}
+  {% do assets.addJs('theme://js/timeline-filters.js', 100) %}
+  {{ assets.css()|raw }}
+</head>
+<body>
+  <a class="skip-link" href="#content">跳到正文</a>
+  <header class="site-header">
+    <a class="brand" href="{{ home_url }}">LittleLife</a>
+    <nav aria-label="主导航">
+      <a href="{{ base_url }}/">首页</a>
+      <a href="{{ base_url }}/timeline">时间线</a>
+    </nav>
+  </header>
+  <main id="content" class="shell">
+    {% block content %}{{ page.content|raw }}{% endblock %}
+  </main>
+  <footer class="site-footer">
+    <p>私人家庭档案 · 原始资料以开放文件保存</p>
+  </footer>
+  {{ assets.js()|raw }}
+</body>
+</html>
+

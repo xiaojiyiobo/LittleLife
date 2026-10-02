@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+  <article class="story">
+    <header>
+      <a class="back-link" href="{{ base_url }}/timeline">← 返回时间线</a>
+      <p class="eyebrow">{{ page.header.type|default('story')|upper|e }}</p>
+      <h1>{{ page.title|e }}</h1>
+      <time datetime="{{ page.header.date|date('c') }}">{{ page.header.date|date('Y 年 m 月 d 日 H:i') }}</time>
+    </header>
+    {% if page.header.media_files %}
+      <div class="media-grid">
+        {% for filename in page.header.media_files %}
+          {% set item = page.media[filename] %}
+          {% if item %}<figure>{{ item.html(page.title, page.title)|raw }}</figure>{% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+    <div class="prose story-body">{{ page.content|raw }}</div>
+    {% if page.header.tags %}
+      <ul class="tags" aria-label="标签">
+        {% for tag in page.header.tags %}<li>{{ tag|e }}</li>{% endfor %}
+      </ul>
+    {% endif %}
+  </article>
+{% endblock %}
+

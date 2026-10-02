@@ -1,0 +1,5 @@
+enabled: true
+data_root: /littlelife-data
+derived_root: /config/www/user/pages
+max_upload_bytes: 536870912
+max_upload_files: 20

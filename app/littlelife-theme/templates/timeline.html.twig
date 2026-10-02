@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+  <header class="page-heading">
+    <p class="eyebrow">CHRONOLOGICAL ARCHIVE</p>
+    <h1>{{ page.title|e }}</h1>
+    <div class="prose">{{ page.content|raw }}</div>
+  </header>
+  {% set archive = page.find('/archive') %}
+  <section class="timeline-filters" aria-labelledby="timeline-filter-title" data-timeline-filters>
+    <div>
+      <p class="eyebrow" id="timeline-filter-title">筛选记录</p>
+      <p class="filter-summary" data-filter-summary aria-live="polite"></p>
+    </div>
+    <label>年份
+      <select data-filter-year>
+        <option value="">全部年份</option>
+        {% if archive %}
+          {% for year in archive.children.order('folder', 'desc') %}
+            <option value="{{ year.title|e('html_attr') }}">{{ year.title|e }}</option>
+          {% endfor %}
+        {% endif %}
+      </select>
+    </label>
+    <label>月份
+      <select data-filter-month>
+        <option value="">全部月份</option>
+        {% for month in 1..12 %}
+          {% set month_value = month < 10 ? '0' ~ month : month %}
+          <option value="{{ month_value }}">{{ month }} 月</option>
+        {% endfor %}
+      </select>
+    </label>
+    <label>标签
+      <input type="search" data-filter-tag placeholder="输入标签" autocomplete="off">
+    </label>
+    <label class="checkbox-label">
+      <input type="checkbox" data-filter-milestone>
+      只看里程碑
+    </label>
+    <button type="button" class="filter-reset" data-filter-reset>清除筛选</button>
+  </section>
+  <div class="timeline" data-timeline>
+    {% if archive %}
+      {% for year in archive.children.order('folder', 'desc') %}
+        <section class="year-group" data-timeline-year>
+          <h2>{{ year.title|e }}</h2>
+          <ol>
+            {% for entry in year.children.order('date', 'desc') %}
+              {% set entry_date = entry.header.date|date('Y-m-d') %}
+              {% set is_milestone = entry.header.type == 'milestone' or entry.header.milestones %}
+              <li data-timeline-entry
+                  data-year="{{ entry_date|slice(0, 4)|e('html_attr') }}"
+                  data-month="{{ entry_date|slice(5, 2)|e('html_attr') }}"
+                  data-tags="{{ entry.header.tags|default([])|json_encode|e('html_attr') }}"
+                  data-milestone="{{ is_milestone ? 'true' : 'false' }}">
+                <time datetime="{{ entry.header.date|date('c') }}">{{ entry.header.date|date('Y-m-d') }}</time>
+                <a href="{{ entry.url }}">{{ entry.title|e }}</a>
+                <span class="entry-meta">
+                  {% if is_milestone %}<span class="badge">里程碑</span>{% endif %}
+                  {% for tag in entry.header.tags|default([]) %}<span class="tag-chip">{{ tag|e }}</span>{% endfor %}
+                </span>
+              </li>
+            {% endfor %}
+          </ol>
+        </section>
+      {% endfor %}
+    {% endif %}
+    <p class="timeline-empty" data-timeline-empty hidden>没有符合当前筛选条件的记录。</p>
+  </div>
+{% endblock %}
+

@@ -1,0 +1,27 @@
+home:
+  alias: /home
+pages:
+  theme: littlelife
+  cache: true
+  process:
+    markdown: true
+    twig: false
+cache:
+  enabled: true
+  check:
+    method: file
+session:
+  enabled: true
+  secure: true
+  httponly: true
+  samesite: Strict
+security:
+  xss_whitelist: []
+twig:
+  cache: true
+  debug: false
+errors:
+  display: false
+debugger:
+  enabled: false
+

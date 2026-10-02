@@ -1,0 +1,28 @@
+# Secrets and local overrides
+.env
+*.secret
+secrets/
+rclone.conf
+restic-password*
+
+# Real archive data never belongs in Git
+/data/
+/media-originals/
+
+# Runtime and derived data
+runtime/
+derived/
+backup/
+exports/
+/app/offline/*.tar.gz
+/app/offline/*.sha256
+
+# Python/editor noise
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
